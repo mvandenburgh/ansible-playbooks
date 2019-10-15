@@ -1,0 +1,15 @@
+---
+- name: NodeSource package key
+  apt_key:
+    state: present
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+  become: yes
+- name: NodeSource repository
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_12.x bionic main
+  become: yes
+- name: Install NodeJS
+  apt:
+    state: present
+    name: nodejs
+  become: yes
