@@ -1,0 +1,13 @@
+---
+- hosts: hw1
+  gather_facts: no
+  tasks:
+    - name: get apt key
+      apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=EA312927
+    become: yes
+
+    - name: add to mongodb-org-3.2.list
+      lineinfile: dest=/etc/apt/sources.list.d/mongodb-org-3.2.list line="deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse"
+    become: yes
+    - name: install mongo db
+      apt: name=mongodb-org update_cache=yes
