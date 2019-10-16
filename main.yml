@@ -35,7 +35,7 @@
         repo: git@github.com:mvandenburgh/cse356-milestone1.git
         version: master
         accept_hostkey: yes
-        dest: /home/ubuntu/html
+        dest: /home/ubuntu/cse356-milestone1
         key_file: /var/www/.ssh/deploy_key
       become: yes
 
