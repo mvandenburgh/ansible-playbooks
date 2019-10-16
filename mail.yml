@@ -1,0 +1,7 @@
+---
+- name: install mail server
+  apt:
+    name: mailutils
+    state: present
+    update_cache: yes
+  become: yes
