@@ -27,12 +27,14 @@
       become: yes
 
     - name: Remove current git repo
-      command: rm -R cse356-milestone1
+      file:
+        state: absent
+        path: "{{ cse356-milestone1 }}/"
       become: yes
 
     - name: Clone github repo
       git: 
-        repo: git@github.com:mvandenburgh/cse356-milestone1.git
+        repo: git@github.com:mvandenburgh/cse356-milestone1
         version: master
         accept_hostkey: yes
         dest: /home/ubuntu/cse356-milestone1
