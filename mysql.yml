@@ -20,18 +20,25 @@
     state: started
     enabled: true
 
-- name: update mysql root password for all root accounts
-  sudo: yes
-  mysql_user: 
-    name: root 
-    host: "{{ item }}"
-    password: "mike"
-    login_user: root
-    login_password: ""
-    check_implicit_admin: yes
-    priv: "*.*:ALL,GRANT"
-  with_items:
-  - "test"
-  - 127.0.0.1
-  - 1
-  - localhost
+- name: Create database user with password and all database privileges and 'WITH GRANT OPTION'
+  mysql_user:
+    name: mike
+    password: mike
+    priv: '*.*:ALL,GRANT'
+    state: present
+# - name: update mysql root password for all root accounts
+#   sudo: yes
+#   mysql_user: 
+#     name: root 
+#     host: "{{ item }}"
+#     password: "mike"
+#     login_user: root
+#     login_password: ""
+#     check_implicit_admin: yes
+#     priv: "*.*:ALL,GRANT"
+#   with_items:
+#   - "test"
+#   - 127.0.0.1
+#   - 1
+#   - localhost
+
