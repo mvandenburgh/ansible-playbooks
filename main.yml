@@ -61,6 +61,12 @@
         state: present
         update_cache: yes
       become: yes
+    - name: Install PyMySql
+      apt:
+        name: pymysql
+        state: present
+        update_cache: yes
+      become: yes
 
     - name: update mysql root password for all root accounts
       sudo: yes
