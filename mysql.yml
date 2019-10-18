@@ -38,3 +38,9 @@
     password: <>
     priv: '*.*:ALL,GRANT'
     state: present
+
+- name: create users database
+  mysql_db: name="users" login_user="<>" login_password="<>" state=present
+
+- name: create tweets database
+  mysql_db: name="tweets" login_user="<>" login_password="<>" state=present
