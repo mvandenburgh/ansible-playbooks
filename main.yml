@@ -29,7 +29,7 @@
     - name: Remove current git repo
       file:
         state: absent
-        path: "{{ cse356-milestone1 }}/"
+        path: "cse356-milestone1.git/"
       become: yes
 
     - name: Clone github repo
@@ -54,7 +54,7 @@
         name: mysql 
         state: started
         enabled: true
-        
+
     - name: Install python-mysqldb
       apt:
         name: python-mysqldb
