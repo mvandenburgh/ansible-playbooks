@@ -47,6 +47,14 @@
         state: present
         update_cache: yes
       become: yes
+
+    - name: Install python-mysqldb
+      apt:
+        name: python-mysqldb
+        state: present
+        update_cache: yes
+      become: yes
+
      
     - name: Start the MySQL service
       sudo: yes
@@ -55,24 +63,13 @@
         state: started
         enabled: true
 
-    - name: Install python-mysqldb
-      apt:
-        name: python-mysqldb
-        state: present
-        update_cache: yes
-      become: yes
-    - name: Install PyMySql
-      apt:
-        name: pymysql
-        state: present
-        update_cache: yes
-      become: yes
+
 
     - name: update mysql root password for all root accounts
       sudo: yes
       mysql_user: 
         name: root 
-        host: "localhost" 
+        host: {{ item }} 
         password: "mike"
         login_user: root
         login_password: ""
@@ -86,5 +83,5 @@
     
     - include: ./nginx.yml
     - include: ./mail.yml
-    - include: ./mongo.yml
+    # - include: ./mongo.yml
     - include: ./nodejs.yml
