@@ -27,4 +27,4 @@
 - name: Configure elasticsearch
   lineinfile:
     dest: /etc/elasticsearch/elasticsearch.yml
-    line: network.host: {{ ansible_eth0.ipv4.address }}
+    line: "network.host: {{ ansible_eth0.ipv4.address }}"
