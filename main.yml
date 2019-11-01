@@ -51,3 +51,7 @@
   tasks:
     - include: ./mongo.yml
     
+- hosts: elastic
+  gather_facts: no
+  tasks:
+    - include: ./elasticsearch.yml
