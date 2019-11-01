@@ -6,7 +6,7 @@
       shell: |
           eval `ssh-agent -s`
           ssh-add ~/.ssh/id_rsa
-- hosts: test
+- hosts: node
   gather_facts: no
   vars:
     key: "{{ lookup('file', '~/.ssh/id_rsa') }}"
@@ -41,8 +41,13 @@
         key_file: /var/www/.ssh/deploy_key
       become: yes
     
-    - include: ./nginx.yml
+    - include: ./nginx_rp.yml
     - include: ./mail.yml
-    - include: ./mongo.yml
-    # - include: ./mysql.yml
+    #- include: ./mongo.yml
     - include: ./nodejs.yml
+    
+- hosts: mongo
+  gather_facts: no
+  tasks:
+    - include: ./mongo.yml
+    
