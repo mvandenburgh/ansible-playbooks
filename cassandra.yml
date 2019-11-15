@@ -19,6 +19,14 @@
     update_cache: yes
   become: yes
   
+- name: Set cassandra config options
+  lineinfile:
+    path: /etc/cassandra/cassandra.yaml
+    line: rpc_address: 0.0.0.0
+  lineinfile:
+    path: /etc/cassandra/cassandra.yaml
+    line: broadcast_rpc_address: 1.2.3.4
+  
 - name: Start cassandra 2.2
   service:
     name: cassandra
