@@ -8,3 +8,9 @@
   apt_key:
     url: https://www.apache.org/dist/cassandra/KEYS
     state: present
+- name: Install cassandra 2.2
+  apt:
+    name: cassandra
+    state: latest
+    update_cache: yes
+    
