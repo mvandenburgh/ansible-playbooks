@@ -1,0 +1,10 @@
+  
+---
+- name: Add cassandra 2.2 source
+  - apt_repository:
+    repo: deb-src http://archive.canonical.com/ubuntu hardy partner
+    state: present
+- name: Add cassandra repo keys
+  apt_key:
+    url: https://www.apache.org/dist/cassandra/KEYS
+    state: present
