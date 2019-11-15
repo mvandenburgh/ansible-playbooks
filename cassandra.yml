@@ -4,13 +4,19 @@
   - apt_repository:
     repo: deb-src http://archive.canonical.com/ubuntu hardy partner
     state: present
+    
 - name: Add cassandra repo keys
   apt_key:
     url: https://www.apache.org/dist/cassandra/KEYS
     state: present
+    
 - name: Install cassandra 2.2
   apt:
     name: cassandra
     state: latest
     update_cache: yes
-    
+
+- name: Start cassandra 2.2
+  service:
+    name: cassandra
+    state: started
