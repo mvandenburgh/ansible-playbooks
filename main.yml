@@ -55,3 +55,8 @@
   gather_facts: no
   tasks:
     - include: ./elasticsearch.yml
+
+- hosts: cassandra
+  gather_facts: no
+  tasks:
+    - include: ./cassandra.yml
