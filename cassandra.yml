@@ -1,14 +1,14 @@
   
 ---
-- name: Add cassandra 2.2 source
-  apt_repository:
-    repo: deb http://www.apache.org/dist/cassandra/debian 22x main
-    state: present
-  become: yes
-    
 - name: Add cassandra repo keys
   apt_key:
     url: https://www.apache.org/dist/cassandra/KEYS
+    state: present
+  become: yes
+  
+- name: Add cassandra 2.2 source
+  apt_repository:
+    repo: deb http://www.apache.org/dist/cassandra/debian 22x main
     state: present
   become: yes
   
