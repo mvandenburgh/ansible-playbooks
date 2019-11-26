@@ -26,6 +26,7 @@
   lineinfile:
     dest: /etc/cassandra/cassandra.yaml
     line: "broadcast_rpc_address: 1.2.3.4"
+  become: yes
   
 - name: Start cassandra 2.2
   service:
