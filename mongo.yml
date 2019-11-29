@@ -6,7 +6,7 @@
     update_cache: yes
   become: yes
   
-- name: Configure Mongo
+- name: Configure Mongodb
   lineinfile:
     dest: /etc/mongodb.conf
     line: "bind_ip = 127.0.0.1"
@@ -15,3 +15,8 @@
     dest: /etc/mongodb.conf
     line: "bind_ip = 0.0.0.0"
   become: yes
+  
+- name: restart mongodb
+    service: 
+      name: mongodb 
+      state: restarted
