@@ -30,3 +30,18 @@
 #    line: "network.host: {{ ansible_eth0.ipv4.address }}"
     line: "network.host: {{ansible_default_ipv4.address }}"
   become: yes
+  
+- name: Delete elasticsearch default network.host config
+  lineinfile:
+    dest: /etc/elasticsearch/elasticsearch.yml
+    line: "network.host: 192.168.0.1"
+    state: absent
+  become: yes
+  
+- name: insert new elasticsearch config
+  blockinfile:
+    path: /etc/mongodb.conf
+    block: |
+      transport.host: localhost
+      network.host: 192.168.122.76
+  become: yes
