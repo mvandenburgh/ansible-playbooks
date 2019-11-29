@@ -52,7 +52,7 @@
     - include: ./mongo.yml
     
 - hosts: elastic
-  gather_facts: no
+  gather_facts: yes
   tasks:
     - include: ./elasticsearch.yml
 
