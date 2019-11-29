@@ -5,3 +5,13 @@
     state: present
     update_cache: yes
   become: yes
+  
+- name: Configure Mongo
+  lineinfile:
+    dest: /etc/mongodb.conf
+    line: "bind_ip = 127.0.0.1"
+    state: absent
+  lineinfile:
+    dest: /etc/mongodb.conf
+    line: "bind_ip = 0.0.0.0"
+  become: yes
