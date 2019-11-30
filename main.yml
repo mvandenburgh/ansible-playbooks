@@ -55,6 +55,11 @@
   tasks:
     - include: ./elasticsearch.yml
 
+- hosts: nginx
+  gather_facts: no
+  tasks:
+    - include: ./nginx.yml
+
 - hosts: cassandra
   gather_facts: no
   tasks:
