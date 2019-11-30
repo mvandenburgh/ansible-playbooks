@@ -41,7 +41,7 @@
         key_file: /var/www/.ssh/deploy_key
       become: yes
     
-    - include: ./nginx_rp.yml
+    - include: ./nginx.yml
     - include: ./mail.yml
     - include: ./nodejs.yml
     
