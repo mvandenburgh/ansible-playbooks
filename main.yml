@@ -34,16 +34,15 @@
 
     - name: Clone github repo
       git: 
-        repo: git@github.com:mvandenburgh/cse356-milestone1
+        repo: http://github.com/mvandenburgh/356-project.git
         version: master
         accept_hostkey: yes
-        dest: /home/ubuntu/cse356-milestone1
+        dest: ~/356-project
         key_file: /var/www/.ssh/deploy_key
       become: yes
     
     - include: ./nginx_rp.yml
     - include: ./mail.yml
-    #- include: ./mongo.yml
     - include: ./nodejs.yml
     
 - hosts: mongo
