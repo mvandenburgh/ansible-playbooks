@@ -92,10 +92,10 @@
   tasks:
     - include: ./elasticsearch.yml
 
-- hosts: nginx
+- hosts: loadbalancer
   gather_facts: no
   tasks:
-    - include: ./nginx.yml
+    - include: ./loadbalancer.yml
 
 - hosts: cassandra
   gather_facts: no
