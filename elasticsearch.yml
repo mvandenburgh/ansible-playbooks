@@ -43,7 +43,6 @@
     path: /etc/elasticsearch/elasticsearch.yml
     block: |
       transport.host: localhost
-      network.host: 192.168.122.76
   become: yes
 
 - name: restart elasticsearch
