@@ -13,7 +13,7 @@
 - name: make new nginx config file
   file:
     path: "/etc/nginx/nginx.conf"
-    state: present
+    state: touch
   become: yes
 
 - name: set up nginx conf for reverse proxy
