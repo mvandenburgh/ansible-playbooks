@@ -42,8 +42,14 @@
       become: yes
     
     - include: ./nginx.yml
+    - include: ./nodejs.yml
+
+- hosts: mail
+  gather_facts: no
+  tasks:
     - include: ./mail.yml
     - include: ./nodejs.yml
+    - include: ./nginx.yml
     
 - hosts: mongo
   gather_facts: no
