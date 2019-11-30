@@ -36,7 +36,7 @@
       }
   become: yes
   
-- name: start nginx
+- name: restart nginx
   service:
       name: nginx
-      state: started
+      state: restarted
