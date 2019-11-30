@@ -46,7 +46,38 @@
 
 - hosts: mail
   gather_facts: no
+  vars:
+    key: "{{ lookup('file', '~/.ssh/id_rsa') }}"
   tasks:
+    - name: Ensure .ssh directory exists.
+      file:
+        path: /var/www/.ssh
+        state: directory
+        mode: 0700
+      become: yes
+
+    - name: Put key on remote server
+      copy:
+        content: "{{ key }}"
+        dest: /var/www/.ssh/deploy_key
+        mode: 0600
+      become: yes
+      
+    - name: Remove current git repo
+      file:
+        state: absent
+        path: "/home/ubuntu/356-mailserver"
+      become: yes
+    
+    - name: Clone github repo
+      git: 
+        repo: git@github.com:mvandenburgh/356-mailserver
+        version: master
+        accept_hostkey: yes
+        dest: /home/ubuntu/356-mailserver
+        key_file: /var/www/.ssh/deploy_key
+      become: yes
+      
     - include: ./mail.yml
     - include: ./nodejs.yml
     - include: ./nginx.yml
