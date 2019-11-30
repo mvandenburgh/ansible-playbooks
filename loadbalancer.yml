@@ -21,19 +21,19 @@
     path: /etc/nginx/nginx.conf
     block: |
       http {
-         upstream myapp1 {
-          server 209.50.48.33;
-          server 209.50.57.15;
-      }
+          upstream myapp1 {
+                server 209.50.48.33;
+                server 209.50.57.15;
+          }
 
-      server {
-        listen 80;
+          server {
+              listen 80;
 
-        location / {
-            proxy_pass http://myapp1;
-        }
+              location / {
+                  proxy_pass http://myapp1;
+              }
+          }
       }
-    }
   become: yes
   
 - name: restart nginx
