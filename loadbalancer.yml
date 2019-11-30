@@ -7,7 +7,9 @@
   become: yes
   
 - name: erase current nginx config
-  command: rm /etc/nginx/nginx.conf
+  file: 
+    path: "/etc/nginx/nginx.conf"
+    state: absent
   become: yes
 
 - name: make new nginx config file
