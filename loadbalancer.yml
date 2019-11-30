@@ -22,6 +22,7 @@
   blockinfile:
     path: /etc/nginx/nginx.conf
     block: |
+      events { }
       http {
           upstream myapp1 {
                 server 209.50.48.33;
