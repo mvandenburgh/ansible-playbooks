@@ -34,10 +34,10 @@
 
     - name: Clone github repo
       git: 
-        repo: http://github.com/mvandenburgh/356-project.git
+        repo: git@github.com:mvandenburgh/cse356-milestone1
         version: master
         accept_hostkey: yes
-        dest: ~/356-project
+        dest: /home/ubuntu/356-project
         key_file: /var/www/.ssh/deploy_key
       become: yes
     
