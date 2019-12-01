@@ -100,6 +100,8 @@
 - hosts: rabbitmq
   gather_facts: no
   tasks:
+    - include: ./nodejs.yml
+    - include: ./nginx.yml
     - include: ./rabbitmq.yml
 
 - hosts: cassandra
