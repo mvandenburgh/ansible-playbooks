@@ -97,6 +97,11 @@
   tasks:
     - include: ./loadbalancer.yml
 
+- hosts: rabbitmq
+  gather_facts: no
+  tasks:
+    - include: ./rabbitmq.yml
+
 - hosts: cassandra
   gather_facts: no
   tasks:
